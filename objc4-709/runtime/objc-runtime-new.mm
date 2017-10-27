@@ -2126,7 +2126,9 @@ bool mustReadClasses(header_info *hi)
 Class readClass(Class cls, bool headerIsBundle, bool headerIsPreoptimized)
 {
     const char *mangledName = cls->mangledName();
-    
+    if (strcmp(mangledName, "Test") == 0) {
+        printf("");
+    }
     if (missingWeakSuperclass(cls)) {
         // No superclass (probably weak-linked). 
         // Disavow any knowledge of this subclass.
